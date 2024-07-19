@@ -14,6 +14,8 @@ void sendRelativeMouseMove(int dx, int dy)
     input.mi.dwExtraInfo = 0;
     input.mi.time = 0;
     SendInput(1, &input, sizeof(INPUT));
+
+    printf("move %d,%d\n", dx, dy);
 }
 
 ScreenMetric screenMetric{};
@@ -89,8 +91,11 @@ int main(int argc, char *argv[])
 
     if (hMouseHook == NULL)
     {
-        MessageBox(NULL, "Failed to install mouse hook", "Error", MB_ICONERROR);
+        printf("Failed to install mouse hook\n");
         return 1;
+    }
+    else {
+        printf("ready\n");
     }
 
     MSG msg;
