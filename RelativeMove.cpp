@@ -38,7 +38,7 @@ LRESULT CALLBACK hookRelativeMove(int nCode, WPARAM wParam, LPARAM lParam)
         return CallNextHookEx(NULL, nCode, wParam, lParam);
     }
 
-    MSLLHOOKSTRUCT *pMouseStruct = reinterpret_cast<MSLLHOOKSTRUCT *>(lParam);
+    MSLLHOOKSTRUCT* pMouseStruct = reinterpret_cast<MSLLHOOKSTRUCT*>(lParam);
 
     if (pMouseStruct->flags & (LLMHF_INJECTED | LLMHF_LOWER_IL_INJECTED))
     {
@@ -81,7 +81,7 @@ LRESULT CALLBACK hookRelativeMove(int nCode, WPARAM wParam, LPARAM lParam)
     return CallNextHookEx(NULL, nCode, wParam, lParam);
 }
 
-int main(int argc, char *argv[])
+int main(int argc, char* argv[])
 {
 
     crossXBoundaryJudgeThreshold = screenMetric.xDeviceSize() / 2;
@@ -93,9 +93,6 @@ int main(int argc, char *argv[])
     {
         printf("Failed to install mouse hook\n");
         return 1;
-    }
-    else {
-        printf("ready\n");
     }
 
     MSG msg;
